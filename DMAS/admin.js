@@ -394,7 +394,7 @@ addDoc(
 
 fetch(
 
-  "http://localhost:5000/send-notification",
+  "https://dmas-2e3w.onrender.com/send-notification",
 
   {
 
