@@ -149,15 +149,7 @@ app.post(
 
 
       const tokensSnapshot =
-
-      await getDocs(
-
-        collection(
-          db,
-          "fcmTokens"
-        )
-
-      );
+      await db.collection("fcmTokens").get();
 
 
       const tokens = [];
