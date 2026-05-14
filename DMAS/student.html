@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Student Portal
+  </title>
+
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="student.css">
+
+</head>
+
+<body>
+
+  <div class="student-dashboard">
+
+    <div class="student-topbar">
+
+      <div>
+
+        <h1>
+          Student Safety Portal
+        </h1>
+
+        <p>
+          Real-time emergency alerts and campus safety updates.
+        </p>
+
+      </div>
+
+
+      <div
+        class="student-profile"
+        id="student-profile">
+
+        <div
+        class="student-avatar"
+        id="student-avatar">
+
+        S
+
+        </div>
+
+        <div>
+
+            <h4 id="student-name-display">
+            Student User
+            </h4>
+
+            <p id="student-email-display">
+            Connected
+            </p>
+
+        </div>
+
+      </div>
+
+      </div>
+
+    <div class="student-panel-popup"
+    id="student-panel-popup">
+
+    <div class="student-popup-top">
+
+        <div
+        class="student-popup-avatar"
+        id="popup-avatar">
+
+        S
+
+        </div>
+
+        <div>
+
+        <h3 id="popup-student-name">
+        Student User
+        </h3>
+
+        <p id="popup-student-email">
+        Campus Safety Network
+        </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="student-popup-info">
+
+        <div>
+
+          <span>
+            PRN
+          </span>
+
+          <strong id="student-prn-display">
+            Loading...
+          </strong>
+
+        </div>
+
+        <div>
+
+          <span>
+            Mobile
+          </span>
+
+          <strong id="student-mobile-display">
+            Loading...
+          </strong>
+
+        </div>
+
+    </div>
+
+      <div class="student-popup-actions">
+
+        <button id="logout-btn">
+
+          Logout
+
+        </button>
+
+        <button id="delete-account-btn">
+
+          Delete Account
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="student-hero">
+
+      <h1>
+        CAMPUS SAFETY
+        <span>
+          MONITORING
+        </span>
+      </h1>
+
+      <p>
+        Stay updated with real-time emergency alerts,
+        evacuation notices,
+        and campus-wide safety instructions.
+      </p>
+
+    </div>
+
+    <div class="student-grid">
+
+    <!-- ALERT STATUS -->
+
+    <div class="student-panel">
+
+        <div class="student-panel-head">
+
+        <h2>
+            Emergency Status
+        </h2>
+
+        <p>
+            Current campus-wide threat monitoring.
+        </p>
+
+        </div>
+
+        <div class="student-status-card">
+
+        <h1 id="campus-status">
+
+          NORMAL
+
+        </h1>
+
+        <p id="campus-status-text">
+
+          No active emergency threats detected.
+
+        </p>
+
+        <div
+        class="student-response-actions"
+        id="student-response-actions">
+
+          <button id="safe-btn">
+
+            ✅ I AM SAFE
+
+          </button>
+
+          <button id="help-btn">
+
+            🚨 NEED HELP
+
+          </button>
+
+        </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENT ALERTS -->
+
+    <div class="student-panel">
+
+        <div class="student-panel-head">
+
+        <h2>
+            Recent Alerts
+        </h2>
+
+        <p>
+            Latest emergency notifications.
+        </p>
+
+        </div>
+
+        <div
+        class="student-alert-list"
+        id="student-alert-list">
+
+        </div>
+
+    </div>
+
+    </div>
+
+  </div>
+
+  <div
+  class="live-alert-popup"
+  id="live-alert-popup">
+
+    <div class="live-alert-top">
+
+      <span class="live-dot"></span>
+
+      <p>
+        LIVE EMERGENCY ALERT
+      </p>
+
+    </div>
+
+    <h3 id="popup-title">
+
+      Emergency Alert
+
+    </h3>
+
+    <p id="popup-message">
+
+      Incoming emergency notification.
+
+    </p>
+
+  </div>
+
+  <!-- 'cb_Gt7qnhtU099zg62ii7q:APA91bFEwmxleS_GUHBKjDllyxnmN-16aBZQEHF0l-JG8CUyaMmLaKeM1u4gwYOz_280WtdFSalxBFWIr6oNYk2DzZB_mryiwtAr4dpBd7hRJLuWHFkYKnA' -->
+  
+  <script
+  type="module"
+  src="student.js">
+  </script>
+
+</body>
+
+</html>

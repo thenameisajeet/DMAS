@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Student Access
+  </title>
+
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="student-login.css">
+
+</head>
+
+<body>
+
+  <div class="student-container">
+
+    <div class="student-card">
+
+      <div class="student-logo">
+
+        <h1>
+          <span>D</span>MAS
+        </h1>
+
+        <p>
+          Student Safety Access Portal
+        </p>
+
+      </div>
+
+
+      <div class="student-content">
+
+        <h2>
+          Student Authentication
+        </h2>
+
+        <p>
+          Access campus safety alerts,
+          emergency notifications,
+          and real-time incident updates.
+        </p>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+        type="text"
+        id="student-name"
+        placeholder="Enter full name">
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          PRN Number
+        </label>
+
+        <input
+        type="text"
+        id="student-prn"
+        placeholder="Enter PRN number">
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Mobile Number
+        </label>
+
+        <div class="mobile-input">
+
+          <span>
+            +91
+          </span>
+
+          <input
+          type="text"
+          id="student-mobile"
+          placeholder="Enter mobile number">
+
+        </div>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Email Address
+        </label>
+
+        <input
+        type="email"
+        id="student-email"
+        placeholder="Enter email">
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Password
+        </label>
+
+        <input
+        type="password"
+        id="student-password"
+        placeholder="Enter password">
+
+      </div>
+
+
+      <button
+      class="student-login-btn"
+      onclick="signupStudent()">
+
+      Create Student Account
+
+      </button>
+
+
+      <button
+      class="student-login-btn secondary-btn"
+      onclick="loginStudent()">
+
+      Login Existing Account
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="student-toast" id="student-toast">
+
+    Please enter login credentials
+
+  </div>
+
+
+
+<script type="module">
+
+import {
+
+  initializeApp
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+
+  getFirestore,
+  doc,
+  setDoc,
+  collection,
+  getDocs
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// FIREBASE CONFIG
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBE7UWWcOs5MEXg1pNwy-5BLRGFIFj9ksw",
+
+  authDomain: "dmas-173314.firebaseapp.com",
+
+  projectId: "dmas-173314",
+
+  storageBucket: "dmas-173314.firebasestorage.app",
+
+  messagingSenderId: "640512715844",
+
+  appId: "1:640512715844:web:9d66519d26f31fda972011"
+
+};
+
+
+// INIT
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+// SIGNUP
+
+window.signupStudent =
+function(){
+
+  const studentName =
+
+  document.getElementById(
+  "student-name"
+  ).value;
+
+
+  const studentPrn =
+
+  document.getElementById(
+  "student-prn"
+  ).value;
+
+
+  const studentMobile =
+
+  document.getElementById(
+  "student-mobile"
+  ).value;
+
+  const email =
+
+  document.getElementById(
+  "student-email"
+  ).value;
+
+
+  const password =
+
+  document.getElementById(
+  "student-password"
+  ).value;
+
+  // CHECK EXISTING STUDENTS
+
+  getDocs(
+
+    collection(
+      db,
+      "students"
+    )
+
+  )
+
+  .then(function(snapshot){
+
+    let alreadyExists =
+    false;
+
+    snapshot.forEach(function(doc){
+
+      const data =
+      doc.data();
+
+      if(
+
+        data.prn === studentPrn ||
+
+        data.mobile === studentMobile ||
+
+        data.email === email
+
+      ){
+
+        alreadyExists = true;
+      }
+
+    });
+
+    if(alreadyExists){
+
+      const toast =
+
+      document.getElementById(
+        "student-toast"
+      );
+
+      toast.innerText =
+
+      "PRN / Mobile / Email already registered";
+
+      toast.classList.add(
+        "show"
+      );
+
+      setTimeout(function(){
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },3000);
+
+      return;
+    }
+
+  createUserWithEmailAndPassword(
+
+    auth,
+    email,
+    password
+
+  )
+
+  .then(async function(userCredential){
+
+    try{
+
+      const user =
+      userCredential.user;
+
+
+      // SAVE STUDENT DATA
+
+      await setDoc(
+
+        doc(
+          db,
+          "students",
+          user.uid
+        ),
+
+        {
+
+          fullName:
+          studentName,
+
+          prn:
+          studentPrn,
+
+          mobile:
+          "+91" + studentMobile,
+
+          email:
+          email,
+
+          createdAt:
+          new Date()
+
+        }
+
+      );
+
+
+      console.log(
+        "Firestore Data Saved"
+      );
+
+
+      const toast =
+
+      document.getElementById(
+      "student-toast"
+      );
+
+      toast.innerText =
+      "Student Account Created";
+
+      toast.classList.add(
+      "show"
+      );
+
+
+      setTimeout(function(){
+
+        window.location.href =
+        "student.html";
+
+      },2000);
+
+    }
+
+    catch(error){
+
+      console.log(error);
+
+      alert(
+        "Firestore Save Failed"
+      );
+
+    }
+
+  })
+
+  
+
+  .catch(function(error){
+
+    const toast =
+
+    document.getElementById(
+    "student-toast"
+    );
+
+    toast.innerText =
+    error.message;
+
+    toast.classList.add(
+    "show"
+    );
+
+  });
+
+ });
+
+}
+
+
+// LOGIN
+
+window.loginStudent =
+
+function(){
+
+  const email =
+
+  document.getElementById(
+    "student-email"
+  ).value;
+
+  const password =
+
+  document.getElementById(
+    "student-password"
+  ).value;
+
+
+  signInWithEmailAndPassword(
+
+    auth,
+    email,
+    password
+
+  )
+
+  .then(function(){
+
+    const toast =
+
+    document.getElementById(
+      "student-toast"
+    );
+
+    toast.innerText =
+
+    "Login Successful";
+
+    toast.classList.add(
+      "show"
+    );
+
+    setTimeout(function(){
+
+      window.location.href =
+      "student.html";
+
+    },1500);
+
+  })
+
+  .catch(function(error){
+
+    const toast =
+
+    document.getElementById(
+      "student-toast"
+    );
+
+    toast.innerText =
+    error.message;
+
+    toast.classList.add(
+      "show"
+    );
+
+  });
+
+}
+
+</script>
+
+</body>
+
+</html>

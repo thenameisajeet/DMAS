@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Admin Access
+  </title>
+
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="admin-login.css">
+
+</head>
+
+<body>
+
+  <div class="login-container">
+
+    <div class="login-card">
+
+      <div class="login-logo">
+
+        <h1>
+          <span>D</span>MAS
+        </h1>
+
+        <p>
+          Administrative Secure Access
+        </p>
+
+      </div>
+
+
+      <div class="login-content">
+
+        <h2>
+          Operator Authentication
+        </h2>
+
+        <p>
+          Authorized emergency personnel only.
+          Secure administrator verification required.
+        </p>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Admin ID
+        </label>
+
+        <input
+        type="text"
+        id="admin-id"
+        placeholder="Enter administrator ID">
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Secure Password
+        </label>
+
+        <input
+        type="password"
+        id="admin-password"
+        placeholder="Enter secure password">
+
+      </div>
+
+
+      <button
+      class="login-btn"
+      onclick="loginAdmin()">
+
+        Access Control System
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="login-toast" id="login-toast">
+
+    Unauthorized Access Credentials
+
+  </div>
+
+<script>
+
+function loginAdmin(){
+
+  const adminId =
+
+  document.getElementById("admin-id").value;
+
+  const adminPassword =
+
+  document.getElementById("admin-password").value;
+
+
+  // DEMO CREDENTIALS
+
+  if(
+
+    adminId === "admin" &&
+
+    adminPassword === "dmas123"
+
+  ){
+
+    const toast =
+
+    document.getElementById("login-toast");
+
+    toast.innerText =
+    "Access Authorized";
+
+    toast.classList.add("show");
+
+
+    setTimeout(function(){
+
+      localStorage.setItem(
+
+        "dmasAdmin",
+
+        "true"
+
+      );
+
+      window.location.href =
+      "admin.html";
+
+    },1400);
+  }
+
+  else{
+
+    const toast =
+
+    document.getElementById("login-toast");
+
+    toast.innerText =
+    "Unauthorized Access Credentials";
+
+    toast.classList.add("show");
+
+
+    setTimeout(function(){
+
+      toast.classList.remove("show");
+
+    },3000);
+  }
+
+}
+
+// ENTER KEY LOGIN
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key === "Enter"){
+
+    loginAdmin();
+  }
+
+});
+
+</script>
+
+</body>
+
+</html>

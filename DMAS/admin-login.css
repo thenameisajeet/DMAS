@@ -1,0 +1,422 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Inter',sans-serif;
+
+  background:#050505;
+
+  color:white;
+
+  overflow:hidden;
+
+  min-height:100vh;
+}
+
+
+/* GRID BACKGROUND */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  background-image:
+
+  linear-gradient(
+  rgba(255,255,255,0.03) 1px,
+  transparent 1px
+  ),
+
+  linear-gradient(
+  90deg,
+  rgba(255,255,255,0.03) 1px,
+  transparent 1px
+  );
+
+  background-size:50px 50px;
+
+  z-index:-3;
+}
+
+
+/* RED AMBIENT GLOW */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:700px;
+  height:700px;
+
+  border-radius:50%;
+
+  background:red;
+
+  filter:blur(240px);
+
+  opacity:0.14;
+
+  top:-220px;
+  right:-220px;
+
+  z-index:-2;
+}
+
+
+/* MAIN CONTAINER */
+
+.login-container{
+
+  width:100%;
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:30px;
+}
+
+/* LOGIN CARD */
+
+.login-card{
+
+  width:520px;
+
+  padding:52px;
+
+  border-radius:36px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  rgba(18,18,18,0.96),
+  rgba(8,8,8,0.92)
+  );
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0px 0px 60px rgba(255,0,0,0.12);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* CARD ENTRY */
+
+.login-card{
+
+  animation:
+  loginEntry 0.9s ease;
+}
+
+@keyframes loginEntry{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    translateY(40px)
+    scale(0.96);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    translateY(0px)
+    scale(1);
+  }
+}
+
+/* LOGO */
+
+.login-logo{
+
+  margin-bottom:42px;
+}
+
+.login-logo h1{
+
+  font-size:64px;
+
+  font-weight:800;
+
+  letter-spacing:8px;
+
+  margin-bottom:12px;
+
+  background:
+  linear-gradient(
+  to right,
+  #ffffff,
+  #8d8d8d
+  );
+
+  background-clip:text;
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+}
+
+
+/* RED D */
+
+.login-logo h1 span{
+
+  color:red;
+
+  -webkit-text-fill-color:red;
+
+  text-shadow:
+  0px 0px 25px rgba(255,0,0,0.5);
+}
+
+
+/* SUBTEXT */
+
+.login-logo p{
+
+  color:#8a8a8a;
+
+  letter-spacing:1px;
+
+  font-size:14px;
+}
+
+
+/* CONTENT */
+
+.login-content{
+
+  margin-bottom:36px;
+}
+
+.login-content h2{
+
+  font-size:34px;
+
+  margin-bottom:16px;
+
+  line-height:46px;
+
+  font-weight:700;
+}
+
+.login-content p{
+
+  color:#9a9a9a;
+
+  line-height:32px;
+
+  font-size:16px;
+}
+
+
+/* INPUT GROUP */
+
+.input-group{
+
+  margin-bottom:24px;
+}
+
+
+/* LABELS */
+
+.input-group label{
+
+  display:block;
+
+  margin-bottom:12px;
+
+  color:#a0a0a0;
+
+  font-size:13px;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+  font-weight:600;
+}
+
+
+/* INPUTS */
+
+.input-group input{
+
+  width:100%;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+
+  background:
+  rgba(255,255,255,0.03);
+
+  color:white;
+
+  outline:none;
+
+  font-size:15px;
+
+  font-family:'Inter',sans-serif;
+
+  transition:0.3s;
+
+  caret-color:red;
+}
+
+
+/* FOCUS */
+
+.input-group input:focus{
+
+  border-color:
+  rgba(255,0,0,0.2);
+
+  background:
+  rgba(255,255,255,0.05);
+
+  box-shadow:
+  0px 0px 20px rgba(255,0,0,0.12);
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn{
+
+  width:100%;
+
+  margin-top:12px;
+
+  padding:22px;
+
+  border:none;
+
+  border-radius:22px;
+
+  background:
+  linear-gradient(
+  to right,
+  #ff1a1a,
+  #8a0000
+  );
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+  0px 0px 35px rgba(255,0,0,0.18);
+}
+
+
+/* HOVER */
+
+.login-btn:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.02);
+
+  filter:brightness(1.08);
+
+  box-shadow:
+  0px 0px 45px rgba(255,0,0,0.26);
+}
+
+
+/* PRESS */
+
+.login-btn:active{
+
+  transform:scale(0.98);
+}
+
+
+/* LOGIN TOAST */
+
+.login-toast{
+
+  position:fixed;
+
+  right:30px;
+  bottom:30px;
+
+  padding:18px 24px;
+
+  border-radius:18px;
+
+  background:
+  rgba(15,15,15,0.96);
+
+  border:
+  1px solid rgba(255,0,0,0.2);
+
+  color:white;
+
+  letter-spacing:1px;
+
+  box-shadow:
+  0px 0px 30px rgba(255,0,0,0.14);
+
+  transform:
+  translateY(120px);
+
+  opacity:0;
+
+  transition:0.4s;
+
+  z-index:9999;
+}
+
+
+/* SHOW */
+
+.login-toast.show{
+
+  transform:
+  translateY(0px);
+
+  opacity:1;
+}

@@ -1,0 +1,353 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Inter',sans-serif;
+
+  background:#050505;
+
+  color:white;
+
+  overflow:hidden;
+
+  min-height:100vh;
+}
+
+
+/* GRID BACKGROUND */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  background-image:
+
+  linear-gradient(
+  rgba(255,255,255,0.03) 1px,
+  transparent 1px
+  ),
+
+  linear-gradient(
+  90deg,
+  rgba(255,255,255,0.03) 1px,
+  transparent 1px
+  );
+
+  background-size:50px 50px;
+
+  z-index:-3;
+}
+
+
+/* RED AMBIENT GLOW */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:700px;
+  height:700px;
+
+  border-radius:50%;
+
+  background:red;
+
+  filter:blur(220px);
+
+  opacity:0.14;
+
+  top:-220px;
+  right:-220px;
+
+  z-index:-2;
+
+  animation:
+  ambientMove 12s ease-in-out infinite;
+}
+
+/* MAIN CONTAINER */
+
+.gateway-container{
+
+  width:100%;
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:30px;
+}
+
+
+/* GATEWAY CARD */
+
+.gateway-card{
+
+  width:520px;
+
+  padding:50px;
+
+  border-radius:36px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  rgba(18,18,18,0.95),
+  rgba(8,8,8,0.92)
+  );
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0px 0px 60px rgba(255,0,0,0.12);
+
+  position:relative;
+
+  overflow:hidden;
+
+  animation:
+  gatewayEntry 0.9s ease;
+}
+
+/* LOGO */
+
+.gateway-logo{
+
+  margin-bottom:40px;
+}
+
+.gateway-logo h1{
+
+  font-size:64px;
+
+  font-weight:800;
+
+  letter-spacing:8px;
+
+  margin-bottom:12px;
+
+  background:
+  linear-gradient(
+  to right,
+  #ffffff,
+  #8d8d8d
+  );
+
+  background-clip:text;
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+}
+
+
+/* RED D */
+
+.gateway-logo h1 span{
+
+  color:red;
+
+  -webkit-text-fill-color:red;
+
+  text-shadow:
+  0px 0px 25px rgba(255,0,0,0.5);
+}
+
+
+/* SUBTEXT */
+
+.gateway-logo p{
+
+  color:#8a8a8a;
+
+  letter-spacing:1px;
+
+  font-size:14px;
+}
+
+/* CONTENT */
+
+.gateway-content{
+
+  margin-bottom:38px;
+}
+
+.gateway-content h2{
+
+  font-size:34px;
+
+  margin-bottom:16px;
+
+  line-height:46px;
+
+  font-weight:700;
+}
+
+.gateway-content p{
+
+  color:#9a9a9a;
+
+  line-height:32px;
+
+  font-size:16px;
+}
+
+/* BUTTON AREA */
+
+.gateway-buttons{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:18px;
+}
+
+
+/* BUTTONS */
+
+.gateway-buttons button{
+
+  width:100%;
+
+  padding:22px;
+
+  border:none;
+
+  border-radius:22px;
+
+  color:white;
+
+  font-size:17px;
+
+  font-weight:600;
+
+  letter-spacing:1px;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* ADMIN BUTTON */
+
+.admin-btn{
+
+  background:
+  linear-gradient(
+  to right,
+  #ff1a1a,
+  #8f0000
+  );
+
+  box-shadow:
+  0px 0px 35px rgba(255,0,0,0.18);
+}
+
+
+/* STUDENT BUTTON */
+
+.student-btn{
+
+  background:
+  linear-gradient(
+  to right,
+  #161616,
+  #252525
+  );
+
+  border:
+  1px solid rgba(255,255,255,0.06);
+}
+
+
+/* HOVER EFFECT */
+
+.gateway-buttons button:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.02);
+
+  filter:brightness(1.08);
+}
+
+
+/* PRESS EFFECT */
+
+.gateway-buttons button:active{
+
+  transform:scale(0.98);
+}
+
+
+/* AMBIENT MOTION */
+
+@keyframes ambientMove{
+
+  0%{
+
+    transform:
+    translate(0px,0px)
+    scale(1);
+  }
+
+  50%{
+
+    transform:
+    translate(-70px,50px)
+    scale(1.08);
+  }
+
+  100%{
+
+    transform:
+    translate(0px,0px)
+    scale(1);
+  }
+}
+
+
+/* CARD ENTRY */
+
+@keyframes gatewayEntry{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    translateY(40px)
+    scale(0.96);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    translateY(0px)
+    scale(1);
+  }
+}

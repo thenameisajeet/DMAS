@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMAS Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./admin.css">
+
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div>
+
+        <div class="logo">
+
+          <div class="logo-ring"></div>
+
+          <h1>
+
+            <span>D</span>MAS
+
+          </h1>
+
+          <p>
+            Disaster Management
+            Alert System
+          </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+          <h3>
+            System Status
+          </h3>
+
+          <div class="status-live">
+
+            <div class="dot"></div>
+
+            <span>
+              Operational
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="menu">
+
+          <h4>
+            Main Navigation
+          </h4>
+
+          <a href="#" class="active-nav">
+            <i class="fa-solid fa-table-columns"></i>
+            Dashboard
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Emergency Alerts
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-user-group"></i>
+            Students
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Incident Logs
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="bottom-box">
+
+        <p>
+          Last System Sync
+        </p>
+
+        <h5 id="clock">
+          10:42 PM
+        </h5>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+      <!-- TOPBAR -->
+
+      <div class="topbar">
+
+        <div class="topbar-left">
+
+          <h2>
+            Emergency Command Dashboard
+          </h2>
+
+          <p>
+            Real-time campus emergency monitoring & response center
+          </p>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+          <div class="time-box">
+            Secure Network Active
+          </div>
+
+          <div class="admin-profile" id="admin-profile">
+
+            <div class="admin-avatar">
+
+              A
+
+            </div>
+
+            <div class="admin-info">
+
+              <h4>
+                Admin Control
+              </h4>
+
+              <p>
+                Level 4 Authority
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="admin-panel" id="admin-panel">
+
+        <div class="admin-panel-top">
+
+          <div class="admin-big-avatar">
+
+            A
+
+          </div>
+
+          <div>
+
+            <h3>
+              Admin
+            </h3>
+
+            <p>
+              System Administrator
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="admin-panel-info">
+
+          <div>
+
+            <span>
+              Authority
+            </span>
+
+            <strong>
+              Level 4
+            </strong>
+
+          </div>
+
+          <div>
+
+            <span>
+              Status
+            </span>
+
+            <strong>
+              Active
+            </strong>
+
+          </div>
+
+        </div>
+
+        <div class="admin-actions">
+
+          <button>
+
+            <i class="fa-solid fa-gear"></i>
+            Admin Settings
+
+          </button>
+
+          <button>
+
+            <i class="fa-solid fa-file-shield"></i>
+            Emergency Logs
+
+          </button>
+
+          <button class="logout-btn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Secure Logout
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <h1>
+
+          DISASTER
+          <span>
+            MANAGEMENT
+          </span>
+
+          ALERT SYSTEM
+
+        </h1>
+
+        <p>
+          Centralized emergency communication and response management platform designed for real-time campus safety coordination, threat classification, incident monitoring, and student response tracking.
+        </p>
+
+      </section>
+
+
+      <!-- THREAT -->
+
+      <div class="section-title">
+
+        <h2>
+          Threat Level Classification
+        </h2>
+
+        <p>
+          Emergency severity indicators used for response escalation and campus-wide emergency coordination.
+        </p>
+
+      </div>
+
+
+      <div class="threat-grid">
+
+        <div class="threat-card green">
+
+          <h3>
+            LEVEL 1
+          </h3>
+
+          <h1>
+            LOW RISK
+          </h1>
+
+          <p>
+            Monitoring & verification mode for minor incidents and suspicious activity.
+          </p>
+
+        </div>
+
+
+        <div class="threat-card orange">
+
+          <h3>
+            LEVEL 2
+          </h3>
+
+          <h1>
+            HIGH ALERT
+          </h1>
+
+          <p>
+            Emergency response standby activated for dangerous situations.
+          </p>
+
+        </div>
+
+
+        <div class="threat-card red">
+
+          <h3>
+            LEVEL 3
+          </h3>
+
+          <h1>
+            CATASTROPHIC
+          </h1>
+
+          <p>
+            Immediate evacuation and maximum emergency response required.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- LOWER GRID -->
+
+      <div class="lower-grid">
+
+        <!-- PANEL 1 -->
+
+        <div class="panel">
+
+          <div class="panel-head">
+
+            <h2>
+              Emergency Control Center
+            </h2>
+
+            <p>
+              Trigger and manage real-time emergency alerts.
+            </p>
+
+          </div>
+
+
+          <div class="alert-buttons">
+
+            <button class="fire">
+              Fire Alert
+            </button>
+
+            <button class="flood">
+              Flood Alert
+            </button>
+
+            <button class="earthquake">
+              Earthquake Alert
+            </button>
+
+            <button class="custom-alert-btn" id="modal-title">
+              + Create Custom Alert
+            </button>
+
+            <div
+            class="stop-alert-control"
+            id="stop-alert-btn">
+
+              <div class="stop-alert-indicator">
+
+                <div class="stop-alert-dot"></div>
+
+              </div>
+
+              <div class="stop-alert-text">
+
+                <span>
+                  Emergency Override
+                </span>
+
+                <strong>
+                  Resolve Active Alerts
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PANEL 2 -->
+
+        <div class="panel">
+
+          <div class="panel-head">
+
+            <h2>
+              Student Safety Status
+            </h2>
+
+            <p>
+              Real-time student emergency response analytics.
+            </p>
+
+          </div>
+
+          <div class="active-alert-banner">
+
+            <p>
+              Active Emergency Alerts
+            </p>
+
+            <h1 id="active-alert-count">
+              0
+            </h1>
+
+          </div>
+
+          <div class="stats">
+
+            <div class="stat-box">
+
+              <h1 id="safe-count">
+                0
+              </h1>
+
+              <p>
+                SAFE STUDENTS
+              </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+              <h1 id="pending-count">
+                0
+              </h1>
+
+              <p>
+                PENDING RESPONSE
+              </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+              <h1 id="priority-count">
+                0
+              </h1>
+
+              <p>
+                HIGH PRIORITY
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PANEL 3 -->
+
+        <div class="panel">
+
+          <div class="panel-head">
+
+            <h2>
+              Incident Tracking System
+            </h2>
+
+            <p>
+              Monitor live emergency reports and system activity.
+            </p>
+
+          </div>
+
+
+          <div class="incident-list">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- CUSTOM ALERT MODAL -->
+
+  <div class="custom-modal" id="custom-modal">
+
+    <div class="modal-box">
+
+      <div class="modal-top">
+
+        <h2>
+          Create Emergency Alert
+        </h2>
+
+        <button id="close-modal">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <!-- ALERT TITLE -->
+
+      <div class="input-group">
+
+        <label>
+          Alert Title
+        </label>
+
+        <input
+        type="text"
+        id="alert-title"
+        placeholder="Enter alert title">
+
+      </div>
+
+
+      <!-- ALERT CATEGORY -->
+
+      <div class="input-group">
+
+        <label>
+          Alert Category
+        </label>
+
+        <select id="alert-category">
+
+          <option>
+            Fire
+          </option>
+
+          <option>
+            Flood
+          </option>
+
+          <option>
+            Medical
+          </option>
+
+          <option>
+            Security
+          </option>
+
+          <option>
+            Weather
+          </option>
+
+          <option>
+            Other
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- THREAT LEVEL -->
+
+      <div class="input-group">
+
+        <label>
+          Threat Level
+        </label>
+
+        <select id="alert-level">
+
+          <option>
+            Level 1
+          </option>
+
+          <option>
+            Level 2
+          </option>
+
+          <option>
+            Level 3
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- ALERT MESSAGE -->
+
+      <div class="input-group">
+
+        <label>
+          Alert Message
+        </label>
+
+        <textarea
+        id="alert-message"
+        placeholder="Enter emergency instructions"></textarea>
+
+      </div>
+
+
+      <!-- SEND BUTTON -->
+
+      <button class="send-alert-btn">
+
+        Send Emergency Alert
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- LIVE TOAST -->
+
+  <div class="toast" id="toast">
+
+    <p id="toast-message">
+      Alert Activated
+    </p>
+
+  </div>
+
+
+
+  <script type="module" src="./admin.js"></script>
+
+</body>
+</html>
+
+
