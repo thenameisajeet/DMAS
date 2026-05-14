@@ -90,6 +90,32 @@ getAuth(app);
 const messaging =
 getMessaging(app);
 
+if("serviceWorker" in navigator){
+
+  navigator.serviceWorker.register(
+    "/firebase-messaging-sw.js"
+  )
+
+  .then(function(registration){
+
+    console.log(
+      "Service Worker Registered",
+      registration
+    );
+
+  })
+
+  .catch(function(error){
+
+    console.log(
+      "Service Worker Error",
+      error
+    );
+
+  });
+
+}
+
 // FOREGROUND NOTIFICATIONS
 
 onMessage(
