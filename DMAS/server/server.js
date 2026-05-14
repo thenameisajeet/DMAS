@@ -2,23 +2,10 @@ const express = require("express");
 
 const cors = require("cors");
 
-const admin = require("firebase-admin");
+const admin = require("firebase-admin")
 
+const db = admin.firestore();
 
-const {
-
-  initializeApp
-
-} = require("firebase/app");
-
-
-const {
-
-  getFirestore,
-  collection,
-  getDocs
-
-} = require("firebase/firestore");
 
 
 const serviceAccount = require(
@@ -65,13 +52,6 @@ const firebaseConfig = {
 
 
 // FIRESTORE
-
-const firebaseApp =
-initializeApp(firebaseConfig);
-
-const db =
-getFirestore(firebaseApp);
-
 
 const app = express();
 
