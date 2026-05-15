@@ -590,37 +590,6 @@ stopAlertButton.addEventListener(
 
       priorityCount.innerText = "0";
 
-      pendingCount.innerText = "0";// CLEAR ALL STUDENT RESPONSES
-
-      const responsesSnapshot =
-
-      await getDocs(
-
-        collection(db,"responses")
-
-      );
-
-      for(const responseDoc of responsesSnapshot.docs){
-
-        await deleteDoc(
-
-          doc(
-            db,
-            "responses",
-            responseDoc.id
-          )
-
-        );
-
-      }
-
-
-      // RESET COUNTERS
-
-      safeCount.innerText = "0";
-
-      priorityCount.innerText = "0";
-
       pendingCount.innerText = "0";
 
     }
