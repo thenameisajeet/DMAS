@@ -144,18 +144,18 @@ async function sendSMS(messageText){
 
       {
 
-        route:"v3",
-
-        sender_id:"TXTIND",
-
+        route:"otp",
+      
         message:messageText,
-
+      
         language:"english",
-
+      
         flash:0,
-
-        numbers:numbers.join(",")
-
+      
+        numbers:numbers.join(","),
+      
+        variables_values:"DMAS"
+      
       },
 
       {
