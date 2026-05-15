@@ -2,6 +2,8 @@ const express = require("express");
 
 const cors = require("cors");
 
+const axios = require("axios");
+
 const admin = require("firebase-admin")
 
 
@@ -103,6 +105,85 @@ app.get(
 
 // SEND NOTIFICATION TO ALL STUDENTS
 
+async function sendSMS(messageText){
+
+  try{
+
+    const studentsSnapshot =
+
+    await db
+    .collection("students")
+    .get();
+
+    const numbers = [];
+
+    studentsSnapshot.forEach(function(doc){
+
+      const data = doc.data();
+
+      if(data.mobile){
+
+        numbers.push(data.mobile);
+
+      }
+
+    });
+
+    if(numbers.length === 0){
+
+      console.log(
+        "No mobile numbers found"
+      );
+
+      return;
+    }
+
+    await axios.post(
+
+      "https://www.fast2sms.com/dev/bulkV2",
+
+      {
+
+        route:"q",
+
+        message:messageText,
+
+        language:"english",
+
+        numbers:numbers.join(",")
+
+      },
+
+      {
+
+        headers:{
+
+          authorization:
+          process.env.FAST2SMS_API_KEY
+
+        }
+
+      }
+
+    );
+
+    console.log(
+      "SMS SENT SUCCESSFULLY"
+    );
+
+  }
+
+  catch(error){
+
+    console.log(
+      "SMS ERROR",
+      error.message
+    );
+
+  }
+
+}
+
 app.post(
 
   "/send-notification",
@@ -166,6 +247,11 @@ app.post(
 
       };
 
+      await sendSMS(
+
+        title + " : " + body
+
+      );
 
       const response =
 
