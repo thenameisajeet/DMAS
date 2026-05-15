@@ -156,7 +156,7 @@ async function sendSMS(messageText){
 
         numbers:numbers.join(",")
 
-      }
+      },
 
       {
 
