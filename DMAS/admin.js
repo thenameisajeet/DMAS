@@ -35,6 +35,7 @@ import {
   addDoc,
   getDocs,
   updateDoc,
+  deleteDoc,
   doc,
   onSnapshot,
   query,
@@ -393,8 +394,8 @@ addDoc(
 // SEND PUSH NOTIFICATION
 
 fetch(
-
-  "https://dmas-2e3w.onrender.com/send-notification",
+  
+    "https://dmas-2e3w.onrender.com/send-notification",
 
   {
 
@@ -557,6 +558,70 @@ stopAlertButton.addEventListener(
         "✅ All emergency alerts resolved"
 
       );
+
+      // CLEAR ALL STUDENT RESPONSES
+
+      const responsesSnapshot =
+
+      await getDocs(
+
+        collection(db,"responses")
+
+      );
+
+      for(const responseDoc of responsesSnapshot.docs){
+
+        await deleteDoc(
+
+          doc(
+            db,
+            "responses",
+            responseDoc.id
+          )
+
+        );
+
+      }
+
+
+      // RESET COUNTERS
+
+      safeCount.innerText = "0";
+
+      priorityCount.innerText = "0";
+
+      pendingCount.innerText = "0";// CLEAR ALL STUDENT RESPONSES
+
+      const responsesSnapshot =
+
+      await getDocs(
+
+        collection(db,"responses")
+
+      );
+
+      for(const responseDoc of responsesSnapshot.docs){
+
+        await deleteDoc(
+
+          doc(
+            db,
+            "responses",
+            responseDoc.id
+          )
+
+        );
+
+      }
+
+
+      // RESET COUNTERS
+
+      safeCount.innerText = "0";
+
+      priorityCount.innerText = "0";
+
+      pendingCount.innerText = "0";
 
     }
 
@@ -842,6 +907,7 @@ logoutButton.addEventListener(
     localStorage.removeItem(
       "dmasAdmin"
     );
+
 
     window.location.href =
     "admin-login.html";
