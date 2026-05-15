@@ -144,7 +144,7 @@ async function sendSMS(messageText){
 
       {
 
-        route:"q",
+        route:"dlt",
 
         message:messageText,
 
